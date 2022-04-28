@@ -1,0 +1,10 @@
+sudo: required
+
+services:
+  - docker
+
+before-install:
+  - docker build -t azuch/frontend -f Dockerfile.dev .
+
+script: 
+  - docker run azuch/frontend npm run test -- --coverage
